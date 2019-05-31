@@ -95,14 +95,14 @@ sequelize
   .then(() => {
     console.log('Adding actors to movies...');
     return Promise.all([
-      hollyHunter.addMovie(theIncredibles),
-      craigTNelson.addMovie(theIncredibles),
-      bradBird.addMovie(theIncredibles),
-      hollyHunter.addMovie(incredibles2),
-      craigTNelson.addMovie(incredibles2),
-      bradBird.addMovie(incredibles2),
-      vinDiesel.addMovie(theIronGiant),
-      eliMarienthal.addMovie(theIronGiant)
+      hollyHunter.addActor(theIncredibles),
+      craigTNelson.addActor(theIncredibles),
+      bradBird.addActor(theIncredibles),
+      hollyHunter.addActor(incredibles2),
+      craigTNelson.addActor(incredibles2),
+      bradBird.addActor(incredibles2),
+      vinDiesel.addActor(theIronGiant),
+      eliMarienthal.addActor(theIronGiant)
     ]);
   })
   .then(() => {
@@ -137,8 +137,6 @@ sequelize
           as: 'director' 
         }, 
         {
-        // Including this model causes an error
-        //   "Movie is associated to Person multiple times..."
           model: Movie,
           as: 'actor'
         }

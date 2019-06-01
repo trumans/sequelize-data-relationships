@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   Person.associate = (models) => {
     // director has one-to-many relationship with movies
     Person.hasMany(models.Movie, {
-      as: 'director', 
+      as: 'directed', 
       foreignKey: {
         name: 'directorId', 
         allowNull: false
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
 
     // actor have many-to-many relationship with movies
     Person.belongsToMany(models.Movie, {
-      as: 'movies',
+      as: 'actedInMovies',
       foreignKey: 'actorId', 
       through: 'Actors_Movies'
     });

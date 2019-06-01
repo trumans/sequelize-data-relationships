@@ -95,11 +95,11 @@ sequelize
   .then(() => {
     console.log('Adding actors to movies...');
     return Promise.all([
-      hollyHunter.addMovies([theIncredibles, incredibles2]),
-      craigTNelson.addMovies([theIncredibles, incredibles2]),
-      bradBird.addMovies([theIncredibles, incredibles2]),
-      vinDiesel.addMovie(theIronGiant),
-      eliMarienthal.addMovie(theIronGiant)
+      hollyHunter.addActedInMovies([theIncredibles, incredibles2]),
+      craigTNelson.addActedInMovies([theIncredibles, incredibles2]),
+      bradBird.addActedInMovies([theIncredibles, incredibles2]),
+      vinDiesel.addActedInMovie(theIronGiant),
+      eliMarienthal.addActedInMovies(theIronGiant)
     ]);
   })
   .then(() => {
@@ -131,11 +131,11 @@ sequelize
       include: [ 
         { 
           model: Movie,
-          as: 'director' 
+          as: 'directed' 
         }, 
         {
           model: Movie,
-          as: 'movies'
+          as: 'actedInMovies'
         }
       ] 
     });
